@@ -1,4 +1,12 @@
 
+
+#ifndef STACK_H_
+#define STACK_H_
+
+#include <string>
+
+using namespace std;
+
 class Stack{
 
 	private:
@@ -19,4 +27,6 @@ class Stack{
 		
 		int getTop ();
 	
-}
+};
+
+#endif /* STACK_H_ */
