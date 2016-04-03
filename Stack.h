@@ -19,13 +19,15 @@ class Stack{
 
 		string stack[10000];
 	
-		void push(int array[]);
+		void push(string word);
 	
 		void pop();
 	
 		void parseString(string sentence) ;
 		
 		int getTop ();
+		
+		void printStack(); 
 	
 };
 

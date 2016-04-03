@@ -10,13 +10,26 @@ Stack::Stack(){
 
 	
 	}
-
-void Stack::push(int array[]){
-	top++;
+void Stack::printStack() {
+	
+	for (int element = 0; element < top+1; element++) {
+		cout<<stack[element]<<" "<<endl;
+		
+		}
 	
 	}
+//Add an item to the empty spot in the stack
+void Stack::push(string word){
+	
+	top++;
+	
+	stack[top] = word;
+	
+	}
+//Remove item at last spot in the stack
 void Stack::pop(){
 	
+	stack[top] = "";
 	top--;
 	
 	}
