@@ -2,6 +2,8 @@
 
 #include <iostream>
 
+#include <fstream>
+
 using namespace std;
 
 Stack::Stack(){
@@ -58,10 +60,39 @@ void Stack::parseString(string sentence){
 				
 	}
 	cout<<addToStack[0]<<endl;
-
-
 	
 	}
+//Read a file and create an array with all the words
+void Stack::readFile(string fileName)	{
+	
+	
+	std::ifstream inputFile ();
+	
+	inputFile.open(fileName, ios::in);
+	
+	string line;
+
+	if ( inputFile.is_open() ) {
+		// The file could not be opened
+		
+		}
+	
+	else {
+		// Safely use the file stream
+		while ( !inputFile.eof() )	{
+		
+		cout << line << '\n';
+			
+			}
+   
+  }
+		
+  
+		}
+	
+	
+	
+
 int Stack::getTop (){
 	return top;	
 	

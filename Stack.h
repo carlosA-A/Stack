@@ -28,7 +28,8 @@ class Stack{
 		int getTop ();
 		
 		void printStack(); 
-	
+		
+		void readFile(string fileName);
 };
 
 #endif /* STACK_H_ */
