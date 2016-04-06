@@ -29,7 +29,8 @@ class Stack{
 		
 		void printStack(); 
 		
-		void readFile(string fileName);
+		string readFile(string fileName);
+		string formatSentence(string line);
 };
 
 #endif /* STACK_H_ */

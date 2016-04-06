@@ -12,6 +12,7 @@ int main(){
 	Stack *stack = new Stack();
 	
 	stack -> readFile("test.txt");
+	
 
 		
-	}
+}
