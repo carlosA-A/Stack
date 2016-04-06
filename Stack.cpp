@@ -71,20 +71,25 @@ void Stack::readFile(string fileName)	{
 	
 	myfile.open(fileName.c_str());	
 	
+	string STRING;
 	
-	string line;
-
-	if ( myfile.is_open() ) {
+	if ( !myfile.is_open() ) {
 		//The file could not be opened
+		
+		cout<<"Could not open file"<<endl;
 		
 		}
 	
 	else {
 		// Safely use the file stream
-		while ( !myfile.eof() )	{
 		
-		cout << line << '\n';
-			
+		cout<<"Opened file"<<endl;
+
+		while ( !myfile.eof() )	{			
+		
+			getline(myfile,STRING); // Saves the line in STRING.
+	        
+	        cout<<STRING; // Prints our STRING.			
 			}
    
   }
