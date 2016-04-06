@@ -74,23 +74,23 @@ void Stack::readFile(string fileName)	{
 	
 	string line;
 
-	//if ( inputFile.is_open() ) {
-		// The file could not be opened
+	if ( myfile.is_open() ) {
+		//The file could not be opened
 		
-		//}
+		}
 	
-//	else {
+	else {
 		// Safely use the file stream
-	//	while ( !inputFile.eof() )	{
+		while ( !myfile.eof() )	{
 		
-		//cout << line << '\n';
+		cout << line << '\n';
 			
-			//}
+			}
    
   }
 		
   
-		//}
+		}
 	
 	
 	
