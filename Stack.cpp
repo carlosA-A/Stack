@@ -44,10 +44,29 @@ void Stack::parseString(string sentence){
 		string addToStack[10000];
 		
 		for (int spaceFinder = 0, counter = 0 ,length = 0; spaceFinder < sentence.length();spaceFinder++,length++){
-		if (sentence[spaceFinder] == ' ' ){
+		if (sentence[spaceFinder] == ' ' ||sentence[spaceFinder] == ',' || sentence[spaceFinder] == ';' || 
+		sentence[spaceFinder] == '(' || sentence[spaceFinder] == ')' || sentence[spaceFinder] == '='||
+		(sentence[spaceFinder] == '+' && sentence[spaceFinder+1] == ' ') ){
+			
+			if (sentence[spaceFinder] == ' '){
+			//remove white space and create a substring
+			
 			addToStack[counter] = sentence.substr(startWord,length);
+			push(sentence.substr(startWord,length));
+		}
+		else{
+			//add the text that is before the character "FOR"(
+			addToStack[counter] = sentence.substr(startWord,length);
+			push(sentence.substr(startWord,length));
+			counter++;
+			//remove the character itself FOR"("
+			
+			addToStack[counter] = sentence.substr(startWord+length,1);
+			push(sentence.substr(startWord+length,1));
+
+			}
 			//starts tracking lenght again
-			length = 0;
+			length = -1;
 			//tracks spot in array
 			counter++;
 			//sets new starting position for word
@@ -58,7 +77,7 @@ void Stack::parseString(string sentence){
 			//length of word is calculated by substracting from the total characters the ammount that have been already traversed
 			int lengthWord = spaceFinder-startWord+1;
 			addToStack[counter] = sentence.substr(startWord,lengthWord);
-			
+			push(sentence.substr(startWord,lengthWord));
 			}
 			sizeSentence = counter;	
 	}
@@ -108,7 +127,7 @@ string Stack::readFile(string fileName)	{
 	        	        			
 		}
 			
-	//cout<<sentence<<endl;
+	cout<<sentence<<endl;
 	
 	
 	}
@@ -131,7 +150,7 @@ string Stack::formatSentence(string line){
 			
 			length =  0;
 			//While there are spaces in the string transverse them to later remove them
-			while ((line[spaceFinder] == ' ') && (line[spaceFinder + 1] == ' ') && ( spaceFinder < line.size())){
+			while ((line[spaceFinder] == ' ')  && ( spaceFinder < line.size())){
 				if (isSpace == false) {
 					firstSpace = spaceFinder;
 				}
@@ -144,7 +163,7 @@ string Stack::formatSentence(string line){
 				}
 				//If a space was found then remove it
 				if (isSpace == true) {
-					line.erase(firstSpace,length+1);
+					line.erase(firstSpace,length);
 					
 					isSpace = false;
 					}
