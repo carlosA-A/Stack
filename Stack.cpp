@@ -40,37 +40,38 @@ void Stack::pop(){
 	}
 void Stack::parseString(string sentence){
 	int startWord = 0;
-	int sizeSentence;
+	
 		//Creates a vector of strings
 		string addToStack[10000];
 		
 		for (unsigned int spaceFinder = 0, counter = 0 ,length = 0; spaceFinder < sentence.length();spaceFinder++,length++){
-		if (sentence[spaceFinder] == ' ' ||sentence[spaceFinder] == ',' || sentence[spaceFinder] == ';' || 
-		sentence[spaceFinder] == '(' || sentence[spaceFinder] == ')' || sentence[spaceFinder] == '='||
-		(sentence[spaceFinder] == '+' && sentence[spaceFinder+1] == ' ') ){
+			if (sentence[spaceFinder] == ' ' ||sentence[spaceFinder] == ',' || sentence[spaceFinder] == ';' || 
+			sentence[spaceFinder] == '(' || sentence[spaceFinder] == ')' || sentence[spaceFinder] == '='||
+			(sentence[spaceFinder] == '+' && sentence[spaceFinder+1] == ' ') ){
 			
-			if (sentence[spaceFinder] == ' '){
-			//remove white space and create a substring
+				if (sentence[spaceFinder] == ' '){
+				//remove white space and create a substring
 			
-			addToStack[counter] = sentence.substr(startWord,length);
-			if(!sentence.substr(startWord,length).empty()){
-				push(sentence.substr(startWord,length));
-			}
-		}
-		else{
-			//add the text that is before the character "FOR"(
-			addToStack[counter] = sentence.substr(startWord,length);
-			if(!sentence.substr(startWord,length).empty()){
-			push(sentence.substr(startWord,length));
+				addToStack[counter] = sentence.substr(startWord,length);
+					if(!sentence.substr(startWord,length).empty()){
+						push(sentence.substr(startWord,length));
+				}	
+					}
+			else{
+				//add the text that is before the character "FOR"(
+				addToStack[counter] = sentence.substr(startWord,length);
+					if(!sentence.substr(startWord,length).empty()){
+					push(sentence.substr(startWord,length));
 			
-			}
-			counter++;
-			//remove the character itself FOR"("
+					}
+				counter++;
+				
+				//remove the character itself FOR"("
 			
-			addToStack[counter] = sentence.substr(startWord+length,1);
-				if(!sentence.substr(startWord+length,1).empty()){
-					push(sentence.substr(startWord+length,1));
-				}
+				addToStack[counter] = sentence.substr(startWord+length,1);
+					if(!sentence.substr(startWord+length,1).empty()){
+						push(sentence.substr(startWord+length,1));
+					}
 			}
 			//starts tracking lenght again
 			length = -1;
@@ -80,20 +81,14 @@ void Stack::parseString(string sentence){
 			startWord = spaceFinder + 1;
 	
 		//If sentence is about to end, then create the las substring
-		} else if(spaceFinder + 1 == sentence.length()){
-			//length of word is calculated by substracting from the total characters the ammount that have been already traversed
-			int lengthWord = spaceFinder-startWord+1;
-			addToStack[counter] = sentence.substr(startWord,lengthWord);
-			push(sentence.substr(startWord,lengthWord));
+			} else if(spaceFinder + 1 == sentence.length()){
+				//length of word is calculated by substracting from the total characters the ammount that have been already traversed
+				int lengthWord = spaceFinder-startWord+1;
+				addToStack[counter] = sentence.substr(startWord,lengthWord);
+				push(sentence.substr(startWord,lengthWord));
 			}
-			sizeSentence = counter;	
 	}
-	//Substract 1 because counter starts at 0
 	
-	for(int num = 0; num < sizeSentence - 1; num++){
-	cout<<addToStack[num]<<endl;
-	
-	}
 	
 }
 //Read a file and create an array with all the words
