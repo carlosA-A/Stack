@@ -44,7 +44,7 @@ void Stack::parseString(string sentence){
 		string addToStack[10000];
 		
 		for (int spaceFinder = 0, counter = 0 ,length = 0; spaceFinder < sentence.length();spaceFinder++,length++){
-		if (sentence[spaceFinder] == ' '){
+		if (sentence[spaceFinder] == ' ' ){
 			addToStack[counter] = sentence.substr(startWord,length);
 			//starts tracking lenght again
 			length = 0;
@@ -104,11 +104,11 @@ string Stack::readFile(string fileName)	{
 	       sentence.append(line);
 	       sentence.append(" ");
 	        
-	        cout<<line<<endl; // Prints our line.
+	       // cout<<line<<endl; // Prints our line.
 	        	        			
 		}
 			
-	cout<<sentence<<endl;
+	//cout<<sentence<<endl;
 	
 	
 	}
@@ -153,7 +153,12 @@ string Stack::formatSentence(string line){
 		return line;
 	}	
 	
-
+void Stack::keywoard() {
+	string keywoards[]={"BEGIN","FOR","END","+","-","*","/","++","=",",",";"};
+ 
+	
+	}
+	
 int Stack::getTop (){
 	return top;	
 	
