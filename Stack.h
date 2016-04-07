@@ -29,7 +29,11 @@ class Stack{
 		
 		void printStack(); 
 		
-		void readFile(string fileName);
+		void keywoard();
+		
+		string readFile(string fileName);
+		
+		string formatSentence(string line);
 };
 
 #endif /* STACK_H_ */

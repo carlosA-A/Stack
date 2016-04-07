@@ -11,7 +11,8 @@ int main(){
 	
 	Stack *stack = new Stack();
 	
-	stack -> readFile("test.txt");
-
-		
-	}
+	string sentence = stack -> readFile("test.txt");
+	
+	stack -> parseString (sentence);
+	stack ->printStack();
+}
