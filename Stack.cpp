@@ -17,9 +17,10 @@ Stack::Stack(){
 void Stack::printStack() {
 	
 	for (int element = 0; element < top+1; element++) {
-		cout<<stack[element]<<" "<<endl;
 		
-		}
+		cout<<stack[element]<<" "<<endl;
+	}
+		
 	
 	}
 //Add an item to the empty spot in the stack
@@ -52,18 +53,24 @@ void Stack::parseString(string sentence){
 			//remove white space and create a substring
 			
 			addToStack[counter] = sentence.substr(startWord,length);
-			push(sentence.substr(startWord,length));
+			if(!sentence.substr(startWord,length).empty()){
+				push(sentence.substr(startWord,length));
+			}
 		}
 		else{
 			//add the text that is before the character "FOR"(
 			addToStack[counter] = sentence.substr(startWord,length);
+			if(!sentence.substr(startWord,length).empty()){
 			push(sentence.substr(startWord,length));
+			
+			}
 			counter++;
 			//remove the character itself FOR"("
 			
 			addToStack[counter] = sentence.substr(startWord+length,1);
-			push(sentence.substr(startWord+length,1));
-
+				if(!sentence.substr(startWord+length,1).empty()){
+					push(sentence.substr(startWord+length,1));
+				}
 			}
 			//starts tracking lenght again
 			length = -1;

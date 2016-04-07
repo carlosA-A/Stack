@@ -3,5 +3,5 @@ BEGIN
 FOR (j, 10, ++)
 BEGAN
 sum=sum + i + j;
-        END
-        END
+END
+END
