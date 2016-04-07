@@ -44,7 +44,7 @@ void Stack::parseString(string sentence){
 		//Creates a vector of strings
 		string addToStack[10000];
 		
-		for (int spaceFinder = 0, counter = 0 ,length = 0; spaceFinder < sentence.length();spaceFinder++,length++){
+		for (unsigned int spaceFinder = 0, counter = 0 ,length = 0; spaceFinder < sentence.length();spaceFinder++,length++){
 		if (sentence[spaceFinder] == ' ' ||sentence[spaceFinder] == ',' || sentence[spaceFinder] == ';' || 
 		sentence[spaceFinder] == '(' || sentence[spaceFinder] == ')' || sentence[spaceFinder] == '='||
 		(sentence[spaceFinder] == '+' && sentence[spaceFinder+1] == ' ') ){
