@@ -8,12 +8,14 @@
 
 using namespace std;
 
+//Constructor for stack, creates a default array
 Stack::Stack(){
 		string stack[10000];
 		top = -1;
 
 	
 	}
+//Prints an array passed to it, it tracks the elemets to print by the size, which is also passed
 void Stack::printStack(string *array,int sizeArray) {
 	
 	for (int element = 0; element < sizeArray; element++) {
@@ -500,24 +502,20 @@ void Stack::forLoopDepth (){
 
 		//if the number of nested loops we found at the start is bigger than the number of nested loops found later, then reser temp loops to 0
 		if (numberOfLoops > tempLoops && tempLoops == numberEnds ){
-			cout<< "Works 1"<<endl;
 
 			
 			tempLoops = 0;
 			if(whichSpot == false){
-				cout<< "Works 999"<<endl;
 
 				tempReplace = 0;
 				numberEnds = 0;
 				}
 		}
 		else if (numberOfLoops < tempLoops) {
-cout<< "Works 2"<<endl;
 
 			numberOfLoops = 0;
 		}
 		if(tempReplace!=0 && numberOfLoops==numberEnds){
-cout<< "Works 3"<<endl;
 
 			tempReplace = tempLoops;
 			whichSpot = false;
@@ -530,7 +528,6 @@ cout<< "Works 3"<<endl;
 			//then start using numberLoops again
 		
 		else if((tempReplace!=0) &&(tempLoops == numberEnds)) {
-cout<< "Works 4"<<endl;
 
 			tempReplace = numberOfLoops;
 			whichSpot = true;
@@ -541,25 +538,21 @@ cout<< "Works 4"<<endl;
 		
 		if(stack[element]=="FOR"){
 			
-cout<< "Works 5"<<endl;
 
 			tempReplace++;
 			
 			}
 		else if(stack[element]== "END"){
-cout<< "Works 6"<<endl;
 
 			numberEnds++;
 			}
 			
 			//At the end check whether the replaced variable belonged to tempSpot1 or 2
 				if(whichSpot == false){
-cout<< "Works 7"<<endl;
 
 					tempLoops=tempReplace;
 				}
 				else{
-cout<< "Works 8"<<endl;
 
 					numberOfLoops=tempReplace;
 				}
