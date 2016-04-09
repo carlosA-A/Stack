@@ -180,6 +180,7 @@ string Stack::formatSentence(string line){
 	}	
 	
 void Stack::keywoard() {
+	//arrays to store and compare values
 	string Upperkeywoards[]={"BEGIN","FOR","END"};
 	string characthers [] = {"+","-","*","/","++","=",",",";"};
 	string usedWords[100];
@@ -192,14 +193,17 @@ void Stack::keywoard() {
 	int trackIdentifier = 0;
 	
 	string constant [20];
+	int trackConstant = 0;
+	
 	string operatros[20];
+	
 	string delimiter[20];
+	
 	string syntaxError[20];
 	int trackSyntaxErrors = 0; 
+	
 	string poppedString;
-	
-	bool addedElement = false;
-	
+		
 	int sizeStack =  top+1;
 	
 	cout<<"Works 1"<<endl;
@@ -291,7 +295,8 @@ void Stack::keywoard() {
 		
 		}
 			//check if word is lowercase
-			if ((int)poppedString.at(0)>=97 && (int)poppedString.at(0)<=122){
+			else if ((int)poppedString.at(0)>=97 && (int)poppedString.at(0)<=122){
+				
 				cout<<"Works 11"<<endl;
 				
 				//Check if there is an empty list of identifiers
@@ -343,6 +348,61 @@ void Stack::keywoard() {
 				
 				
 		}
+				//check if there is a number in the stack
+		else if ((int)poppedString.at(0)>=48 && (int)poppedString.at(0)<=57){
+			int numberFormStack = atoi(poppedString.c_str());
+			cout<<"Works 16"<<endl;
+				
+				//Check if there is an empty list of identifiers
+				if (trackIdentifier == 0){
+									cout<<"Works 17"<<endl;
+
+					usedWords[trackUsedWords] = poppedString;
+					trackUsedWords++;
+					identifier[trackIdentifier] = poppedString;
+					trackIdentifier++;
+					cout<<poppedString<<endl;
+					
+					}
+				
+				
+				else{
+					bool continueLoop = true;
+					bool isRepeat = false;
+
+					for (int element = 0; element <= trackUsedWords && continueLoop==true; element++) {
+				
+									cout<<"Works 18"<<endl;
+
+					//If word has already bee added dismiss it
+						if(numberFormStack == atoi(usedWords[element].c_str()) ){
+							isRepeat = true;
+							cout<<"Works 19"<<endl;
+
+						
+							}
+						//If keyword is not in used words, then add it to keyword array and to used words 
+						//while increasing the reference size of the usedWords array
+						else if ((numberFormStack != atoi(usedWords[element].c_str())) && (element == trackUsedWords) && (isRepeat == false)){
+									cout<<"Works 20"<<endl;
+
+							usedWords[trackUsedWords] = poppedString;
+							trackUsedWords++;
+							constant[trackConstant] = poppedString;
+							trackConstant++;
+							cout<<poppedString<<endl;
+							continueLoop = false;
+							
+							}
+					
+						
+					}
+					
+				}
+			
+			
+			}
+
 	}
  
 	
