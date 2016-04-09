@@ -1,7 +1,22 @@
-FOR (i, 10, ++)
-BEGIN
-FOR (j, 10, ++)
-BEGAN
-sum=sum + i + j;
-        END
-        END
+FOR
+FOR
+FOR
+FOR
+FOR
+END
+END
+END
+END
+END
+FOR
+FOR
+END
+END
+FOR
+FOR
+FOR
+FOR
+END
+END
+END
+END

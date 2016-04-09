@@ -21,13 +21,13 @@ class Stack{
 	
 		void push(string word);
 	
-		void pop();
+		string pop();
 	
 		void parseString(string sentence) ;
 		
-		int getTop ();
+		void forLoopDepth ();
 		
-		void printStack(); 
+		void printStack(string *array,int sizeArray); 
 		
 		void keywoard();
 		
