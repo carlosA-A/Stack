@@ -14,6 +14,6 @@ int main(){
 	string sentence = stack -> readFile("test.txt");
 	
 	stack -> parseString (sentence);
-	//stack -> keywoard();
+	stack -> keywoard();
 	stack ->printStack();
 }

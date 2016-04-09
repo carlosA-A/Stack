@@ -188,6 +188,9 @@ void Stack::keywoard() {
 	int trackKeywords = 0;
 
 	string identifier[20];
+	
+	int trackIdentifier = 0;
+	
 	string constant [20];
 	string operatros[20];
 	string delimiter[20];
@@ -199,41 +202,86 @@ void Stack::keywoard() {
 	
 	int sizeStack =  top+1;
 	
+	cout<<"Works 1"<<endl;
+
 	for (int element = 0; element < sizeStack; element++) {
 		
+		cout<<"Works 2"<<endl;
+
 		poppedString = pop();
 		//Check if there is a keyword
 		if (((((int)poppedString.at(0)>=65 )&& ((int)poppedString.at(0)<=90))) ){
-			
+		cout<<"Works 3"<<endl;
+
 			//Checks if items have already been added to the list with all words
 			//loops through all the used words
-			for (int element = 0; element < trackUsedWords; element++) {
-				//If the word is a keyword check if it has been used
-				if((poppedString == Upperkeywoards[0] || poppedString == Upperkeywoards[1]|| 
-				poppedString == Upperkeywoards[2])){
-					//If word has already bee added dismiss it
-					if(poppedString == usedWords[element] ){
-						
-						
-						}
-					//If keyword is not in used words, then add it to keyword array and to used words 
-					//while increasing the reference size of the usedWords array
-					else{
-						usedWords[trackUsedWords] = poppedString;
-						trackUsedWords++;
-						keywords[trackKeywords] = poppedString;
-						trackKeywords++;
-							
-						}
-			
-			
-					}
-				//Word is not a keyword and must be a syntax error
-				else{
-					
-					
-					}	
+			//If no elements exist in used list, check if they are the ywords we have, if not they are syntax errors
+			if (trackUsedWords == 0 && (poppedString == Upperkeywoards[0] || poppedString == Upperkeywoards[1]|| 
+					poppedString == Upperkeywoards[2])){
+						cout<<"Works 4"<<endl;
+
+				usedWords[trackUsedWords] = poppedString;
+				trackUsedWords++;
+				keywords[trackKeywords] = poppedString;
+				trackKeywords++;
+				cout<<poppedString<<endl;
 				
+				}
+				//If no words have been aded to list of used words and it isn't a key word, it is a syntax error
+			else if (trackUsedWords == 0 && (poppedString != Upperkeywoards[0] || poppedString != Upperkeywoards[1]|| 
+					poppedString != Upperkeywoards[2])){
+							cout<<"Works 5"<<endl;
+
+					syntaxError[trackSyntaxErrors] = poppedString;
+					trackSyntaxErrors++;
+				
+				}
+			else{
+				//Boolean values to let loop continue or stop  
+				bool continueLoop = true;
+				bool isRepeat = false;
+				for (int element = 0; element <= trackUsedWords && continueLoop==true; element++) {
+					cout<<"Works 6"<<endl;
+
+					//If the word is a keyword check if it has been used
+					if((poppedString == Upperkeywoards[0] || poppedString == Upperkeywoards[1]|| 
+					poppedString == Upperkeywoards[2])){
+						cout<<"Works 7"<<endl;
+
+						//If word has already bee added dismiss it
+						if(poppedString == usedWords[element] ){
+							isRepeat = true;
+							cout<<"Works 8"<<endl;
+
+						
+							}
+						//If keyword is not in used words, then add it to keyword array and to used words 
+						//while increasing the reference size of the usedWords array
+						else if (poppedString != usedWords[element] && element == trackUsedWords && isRepeat == false){
+									cout<<"Works 9"<<endl;
+
+							usedWords[trackUsedWords] = poppedString;
+							trackUsedWords++;
+							keywords[trackKeywords] = poppedString;
+							trackKeywords++;
+							cout<<poppedString<<endl;
+							continueLoop = false;
+							
+							}
+			
+			
+						}
+					//Word is not a keyword and must be a syntax error
+					else{
+								cout<<"Works 10"<<endl;
+
+						syntaxError[trackSyntaxErrors] = poppedString;
+						trackSyntaxErrors++;
+						break;
+					
+						}	
+				
+					}
 				}
 			
 			
@@ -244,12 +292,56 @@ void Stack::keywoard() {
 		}
 			//check if word is lowercase
 			if ((int)poppedString.at(0)>=97 && (int)poppedString.at(0)<=122){
+				cout<<"Works 11"<<endl;
 				
-				if(addedElement==false){
-					identifier[0] = poppedString;
+				//Check if there is an empty list of identifiers
+				if (trackIdentifier == 0){
+									cout<<"Works 12"<<endl;
+
+					usedWords[trackUsedWords] = poppedString;
+					trackUsedWords++;
+					identifier[trackIdentifier] = poppedString;
+					trackIdentifier++;
+					cout<<poppedString<<endl;
+					
+					}
+				
+				
+				else{
+					bool continueLoop = true;
+					bool isRepeat = false;
+
+					for (int element = 0; element <= trackUsedWords && continueLoop==true; element++) {
+				
+									cout<<"Works 13"<<endl;
+
+					//If word has already bee added dismiss it
+						if(poppedString == usedWords[element] ){
+							isRepeat = true;
+							cout<<"Works 14"<<endl;
+
+						
+							}
+						//If keyword is not in used words, then add it to keyword array and to used words 
+						//while increasing the reference size of the usedWords array
+						else if (poppedString != usedWords[element] && element == trackUsedWords && isRepeat == false){
+									cout<<"Works 15"<<endl;
+
+							usedWords[trackUsedWords] = poppedString;
+							trackUsedWords++;
+							identifier[trackIdentifier] = poppedString;
+							trackIdentifier++;
+							cout<<poppedString<<endl;
+							continueLoop = false;
+							
+							}
 					
 						
-				}		
+						
+					}
+				}
+				
+				
 		}
 	}
  
