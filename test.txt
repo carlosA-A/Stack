@@ -1,7 +1,17 @@
 FOR (i, 10, ++)
 BEGIN
 FOR (j, 10, ++)
-BEGAN
-sum=sum + i + j;
+BEGIN
+FOR (k, 10, ++)
+BEGIN
+sum=sum + i * j + k;
+END
+END
+END
+FOR (i, 10, ++)
+BEGIN
+FOR (j, 10, ++)
+BEGIN
+sum=sum + i / j;
 END
 END

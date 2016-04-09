@@ -25,9 +25,9 @@ class Stack{
 	
 		void parseString(string sentence) ;
 		
-		int getTop ();
+		void forLoopDepth ();
 		
-		void printStack(); 
+		void printStack(string *array,int sizeArray); 
 		
 		void keywoard();
 		
