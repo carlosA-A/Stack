@@ -21,7 +21,7 @@ class Stack{
 	
 		void push(string word);
 	
-		void pop();
+		string pop();
 	
 		void parseString(string sentence) ;
 		
