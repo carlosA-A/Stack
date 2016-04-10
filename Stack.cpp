@@ -1,4 +1,4 @@
-#include "Stack.h"
+#include "pa3.h"
 
 #include <iostream>
 
@@ -505,16 +505,19 @@ void Stack::forLoopDepth (){
 
 			
 			tempLoops = 0;
+			//Reset the number of "END" and the number of "FOR" found to 0 
 			if(whichSpot == false){
 
 				tempReplace = 0;
 				numberEnds = 0;
 				}
 		}
+		//Compare the number of loops analyzed first with the ones later, if there are more FOR's later then set the initial numberofLoops to 0 to re-use and compare again
 		else if (numberOfLoops < tempLoops) {
 
 			numberOfLoops = 0;
 		}
+		//If there are the same number of FOR's as there are END's, then start counting with another loop counter to later compare
 		if(tempReplace!=0 && numberOfLoops==numberEnds){
 
 			tempReplace = tempLoops;
@@ -527,6 +530,7 @@ void Stack::forLoopDepth (){
 			//When the number of temp loops is equal to the number of ends, 
 			//then start using numberLoops again
 		
+		
 		else if((tempReplace!=0) &&(tempLoops == numberEnds)) {
 
 			tempReplace = numberOfLoops;
@@ -535,7 +539,7 @@ void Stack::forLoopDepth (){
 
 			
 			}
-		
+		//Count number of FOR's and END's encountered
 		if(stack[element]=="FOR"){
 			
 
