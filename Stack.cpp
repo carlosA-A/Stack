@@ -10,7 +10,6 @@ using namespace std;
 
 //Constructor for stack, creates a default array
 Stack::Stack(){
-		string stack[10000];
 		top = -1;
 
 	
