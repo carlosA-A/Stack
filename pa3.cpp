@@ -8,6 +8,7 @@ using namespace std;
 
 
 int main(int argc, char ** argv) {
+	cout <<"Hello world"<<endl;
 //Checks number of arguments passed in terminal
 	if (argc > 2){
 
